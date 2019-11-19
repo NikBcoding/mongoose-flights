@@ -21,7 +21,7 @@
             <option value="SAN">SAN</option>
             <option value="SEA">SEA</option>
         </select>
-    </label><br>
+    </label><br><br>
     <label>Airline:
       <select name="airline">
           <option value="">-select airline-</option>
@@ -29,16 +29,16 @@
           <option value="Southwest">Southwest</option>
           <option value="United">United</option>
       </select>
-    </label><br>
-    <label>Flight:
-      <input type="number" placeholder="10-9999" name="flightNum">
-    </label><br>
-    <label>Depart
+    </label><br><br>
+    <label>Flight #:
+      <input type="number" placeholder="10-9999" maxlength="4" name="flightNum">
+    </label><br><br>
+    <label>Departure Time:
       <input type="date" name="departs">
       <input type="time" name="departs">
-    </label><br>
+    </label><br><br>
     
-    <input type="submit" value="Add Flight">
+    <input type="submit" value="Add Flight"><br>
     
   </form><br>
   <a href="/flights">View Flights</a>

@@ -8,11 +8,11 @@
   <title>Mongoose Flights</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-
 <body>
     <h1>Flight List</h1>
     <table>
         <thead>
+            <th>Airport</th>
             <th>Airline</th>
             <th>Flight Number</th>
             <th>Departs</th>
@@ -20,14 +20,16 @@
         <tbody>
             <% flights.forEach(function(flight) {%>
                 <tr>
+                    <td><%= flight.airport%></td>
                     <td><%= flight.airline%></td>
                     <td><%= flight.flightNum %></td>
                     <td><%= flight.departs %></td>
+                    <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
                 </tr>
             <% }) %> 
         </tbody>
     </table>
-  <a href="/flights/new">Add another flight</a>
+  <a href="/flights/new">Add Flight</a>
 </body>
 
 </html>
