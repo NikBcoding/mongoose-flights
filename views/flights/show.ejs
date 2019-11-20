@@ -2,62 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mongoose Flights</title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body>
-        <a href="/flights/new">Add Flight</a><br><br>
-        <a href="/flights">View Flights</a>
-    <h1>Flight Details</h1>
-        <tbody>
-            <section id="show-page">
-                <div><strong>AIRPORT:</strong></div>
-                <div><%= flight.airport %></div><br>
-                <div><strong>AIRLINE:</strong></div>
-                <div><%= flight.airline %></div><br>
-                <div><strong>FLIGHT #:</strong></div>
-                <div><%= flight.flightNum %></div><br>
-                <div><strong>DEPARTURES:</strong></div>
-                <div><%= flight.departs %></div><br>
-            </section>
-            <h2>Add Destination</h2>
-                <form>
-                    <label>Arrival Airport:
-                        <select name="airport">
-                            <option value="">-select airport-</option>
-                            <option value="AUS">AUS</option>
-                            <option value="DAL">DAL</option>
-                            <option value="LAX">LAX</option>
-                            <option value="SAN">SAN</option>
-                            <option value="SEA">SEA</option>
-                        </select>
-                    </label><br><br>
 
-                    <label>Arrival Time:
-                        <input type="date" name="departs">
-                        <input type="time" name="departs">
-                    </label><br><br>
-                <input type="submit" value="Add Flight">
-                </form>
-                <% if (flight.destinations.length) { %>
-                <table>
-                    <thead>
-                          <th>Arrival Airport</th>
-                          <th>Arrival Time</th>
-                    </thead>
-                <tbody>
-                    <% flight.destinations.forEach(function(des) { %>
-                        <tr>
-                            <td><%= des.airport %></td>
-                            <td><%= des.arrival %></td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
+<body>
+    <a href="/flights/new">Add Flight</a><br><br>
+    <a href="/flights">View Flights</a>
+    <h1>Flight Details</h1>
+    <section id="show-page">
+        <div><strong>AIRPORT:</strong></div>
+        <div><%= flight.airport %></div><br>
+        <div><strong>AIRLINE:</strong></div>
+        <div><%= flight.airline %></div><br>
+        <div><strong>FLIGHT #:</strong></div>
+        <div><%= flight.flightNum %></div><br>
+        <div><strong>DEPARTURES:</strong></div>
+        <div><%= flight.departs %></div><br>
+    </section>
+    <% if (flight.destinations.length) { %>
+        <table>
+            <thead>
+                <th>Arrival Airport</th>
+                <th>Arrival Time</th>
+                <th>Ticket</th>
+            </thead>
+            <tbody>
+                <% flight.destinations.forEach(function(des) { %>
+                <tr>
+                    <td><%= des.airport %></td>
+                    <td><%= des.arrival %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <h3>No Set Destination</h3>
+        <% } %>
+
+    <h2>Add Destination</h2>
+    <form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+        <label>Arrival Airport:
+            <select name="airport">
+                <option value="">-select airport-</option>
+                <option value="AUS">AUS</option>
+                <option value="DAL">DAL</option>
+                <option value="LAX">LAX</option>
+                <option value="SAN">SAN</option>
+                <option value="SEA">SEA</option>
+            </select>
+        </label><br><br>
+
+        <label>Arrival Time:
+            <input type="datetime-local" name="arrival">
+        </label><br><br>
+        <input type="submit" value="Add Flight"><br><br>
+        <a href="/tickets/new">NEW TICKET</a>
+    </form>
+    
 </body>
 
 </html>

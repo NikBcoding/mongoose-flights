@@ -36,10 +36,10 @@ var flightSchema = new Schema({
     airport: {
         type: String,
         enum: ['AUS', 'DAL', 'LAX', 'SAN', 'SEA'],
-        default: 'SAN'
+        default: 'SAN',
     },
 
-    destinationSchema: [destinationSchema]
+    destinations: [destinationSchema]
 
 });
 

@@ -1,0 +1,16 @@
+<h1>Select a Ticket</h1>
+
+<p>Please first ensure that the Ticket is not in the dropdown
+  <select>
+    <% tickets.forEach(function(t) { %>
+      <option><%= t.name %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-ticket-form" action="/tickets" method="POST">
+  <label>TICKET:</label>
+  <input type="number" name="name">
+  <input type="submit" value="Add Ticket">
+</form>
+
+
