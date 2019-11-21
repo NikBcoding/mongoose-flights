@@ -3,34 +3,36 @@ var Flight = require('../models/flight');
 
 module.exports = {
     new: newTicket,
-    create,
-    addTicket
+    create
+    // addTicket
 };
 
-function addTicket(req, res) {
-    Flight.findById(req.params.id, function(err, flight) {
-        flight.ticket.push(req.body.ticketId);
-        flight.save(function (err) {
-            res.redirect(`/flights/${flight._id}`);
-            });
-    });
-};
+// function addTicket(req, res) {
+//     Flight.findById(req.params.id, function(err, flight) {
+//         flight.ticket.push(req.body.ticketId);
+//         flight.save(function (err) {
+//             res.redirect(`/flights/${flight._id}`);
+//             });
+//     });
+// };
 
 
 
 
 function create(req, res) {
+    req.body.seat = req.body.seatRow + req.body.seatNum
+    req.body.flight = req.params.id
     Ticket.create(req.body, function(err, ticket) {
-        res.redirect('/tickets/new');
+        res.redirect(`/flights/${req.params.id}`);
     });
 }
 
 
 function newTicket(req, res) {
-    Ticket.find({}, function(err, tickets) {
+    Flight.findById(req.params.id, function(err, flight) {
         res.render('tickets/new', {
             title: 'Add Ticket',
-            tickets
+            flight
         })
     })
 }

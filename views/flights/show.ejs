@@ -11,8 +11,8 @@
 
 
 <body>
-    <a href="/flights/new">Add Flight</a><br><br>
-    <a href="/flights">View Flights</a>
+    <a href="/flights/new">ADD FLIGHT</a><br><br>
+    <a href="/flights">VIEW FLIGHTS</a>
     <h1>Flight Details</h1>
     <section id="show-page">
         <div><strong>AIRPORT:</strong></div>
@@ -27,15 +27,16 @@
     <% if (flight.destinations.length) { %>
         <table>
             <thead>
-                <th>Arrival Airport</th>
-                <th>Arrival Time</th>
-                <th>Ticket</th>
+                <th>ARRIVAL AIRPORT</th>
+                <th>ARRIVAL TIME</th>
+                <th>TICKET</th>
             </thead>
             <tbody>
                 <% flight.destinations.forEach(function(des) { %>
                 <tr>
                     <td><%= des.airport %></td>
                     <td><%= des.arrival %></td>
+                    <td></td>
                 </tr>
                 <% }); %>
             </tbody>
@@ -60,9 +61,13 @@
         <label>Arrival Time:
             <input type="datetime-local" name="arrival">
         </label><br><br>
-        <input type="submit" value="Add Flight"><br><br>
-        <a href="/tickets/new">NEW TICKET</a>
+        <input type="submit" value="Add Destination"><br><br>
+        <a href="/flights/<%= flight._id %>/tickets/new">CHOOSE TICKET</a>
     </form>
+    <h2>Tickets Purchased</h2>
+    <% tickets.forEach(function(t) { %>
+        <li><%= t.seat %> - <%= t.price %></li>
+    <% }) %>
     
 </body>
 

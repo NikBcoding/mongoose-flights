@@ -1,16 +1,47 @@
 <h1>Select a Ticket</h1>
 
-<p>Please first ensure that the Ticket is not in the dropdown
-  <select>
-    <% tickets.forEach(function(t) { %>
-      <option><%= t.name %></option>
-    <% }) %>
-  </select>
-</p>
-<form id="add-ticket-form" action="/tickets" method="POST">
-  <label>TICKET:</label>
-  <input type="number" name="name">
-  <input type="submit" value="Add Ticket">
+
+<form id="add-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
+  <label>SEAT:</label>
+ 
+    <select name="seatRow">
+      <option value="">-select seat-</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+    </select>
+    <select name="seatNum">
+      <option value="">-select row/price-</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+
+  <label>PRICE:</label>
+  
+      <select name="price">
+        <option value="">-select row/price-</option>
+        <option value="$1,000">$1,000</option>
+        <option value="$900">$900</option>
+        <option value="3">850</option>
+        <option value="4">750</option>
+        <option value="5">650</option>
+        <option value="6">550</option>
+        <option value="7">450</option>
+        <option value="8">350</option>
+        <option value="9">250</option>
+      </select>
+  
+  <input type="submit" value="submit">
 </form>
 
 
