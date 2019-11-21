@@ -2,7 +2,7 @@
 
 
 <form id="add-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
-  <label>SEAT:</label>
+  <label><strong>SEAT:</strong></label>
  
     <select name="seatRow">
       <option value="">-select seat-</option>
@@ -26,19 +26,16 @@
       <option value="9">9</option>
     </select>
 
-  <label>PRICE:</label>
+  <label><strong>PRICE:</strong></label>
   
       <select name="price">
         <option value="">-select row/price-</option>
         <option value="$1,000">$1,000</option>
         <option value="$900">$900</option>
-        <option value="3">850</option>
-        <option value="4">750</option>
-        <option value="5">650</option>
-        <option value="6">550</option>
-        <option value="7">450</option>
-        <option value="8">350</option>
-        <option value="9">250</option>
+        <option value="$800">$800</option>
+        <option value="$700">$700</option>
+        <option value="$600">$600</option>
+        <option value="$500">$500</option>
       </select>
   
   <input type="submit" value="submit">
