@@ -8,7 +8,10 @@
   <title>Mongoose Flights</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
+<body class="flight-list">
+    <nav>
+        <a href="/flights/new">ADD FLIGHT</a>
+    </nav>
     <h1>Flight List</h1>
     <table>
         <thead>
@@ -24,12 +27,12 @@
                     <td><%= flight.airline%></td>
                     <td><%= flight.flightNum %></td>
                     <td><%= flight.departs %></td>
-                    <td><a href="/flights/<%= flight._id %>">DETAILS</a></td>
+                    <td><a class="detaillink" href="/flights/<%= flight._id %>">DETAILS</a></td>
                 </tr>
             <% }) %> 
         </tbody>
     </table>
-  <a href="/flights/new">Add Flight</a>
+
 </body>
 
 </html>

@@ -1,8 +1,75 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+  color: rgb(35, 22, 155);
+  background-color: rgb(130, 255, 255);
 }
 
-a {
-  color: #00B7FF;
+body > nav {
+  grid-area: nav;
+  background-color: rgb(13, 13, 211);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+  
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav > a:hover {
+  color: lime;
+  background-color: #267585;
+}
+
+.submitbtn{
+  padding: 7px;
+  background-color: blue;
+  color: aquamarine;
+  color: lime;
+  background-color: #267585;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 10px;
+  box-shadow: 0 4px #999;
+  outline: none;
+}
+.submitbtn:hover {
+  background-color: #3e8e41
+}
+
+.submitbtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+select {
+  height: 30px;
+  background-color: aqua;
+  font-size: 16px;
+}
+
+input {
+  height: 30px;
+  background-color: aqua;
+  font-size: 16px;
+}
+
+.detaillink {
+  color: red;
+}
+
+div {
+  color: red
+}
+
+.ticketcolor {
+  color: red
 }
